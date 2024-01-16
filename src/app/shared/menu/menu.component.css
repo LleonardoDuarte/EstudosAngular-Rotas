@@ -1,0 +1,6 @@
+.activated {
+  text-decoration: none;
+  color: red;
+  font-size: 40px;
+  font-weight: bold;
+}

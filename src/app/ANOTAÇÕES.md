@@ -9,4 +9,21 @@
 
 - A respeito de componentes de direcionamento no html (a), ao inves de usarmos href usaremos o [RouterLink] pois a ideia de usar um framework com single page aplication é justamente nao recarregar a página e se usarmos o href isso acontece, já com o routerlink nao. Exemplo: <a [routerLink]="['/portfolio']">PORTFOLIO</a>
 
+- É possivel criar uma classe para o routerlink ativo usando o [RouterLinkActive]="['classeaqui']" ao qual se pode criar uma classe e estilizar no css
 
+- O [routerLinkActiveOptions]="{ exact: true }" serve para apenas ativar a classe quando o caminho for exatamente aquele, nesse caso adicionado isso a página home, quando clicarmos na aba portifolio a aba home nao ira exibir o css pois o caminho agora está como /portifolio.
+
+- para que se possa resgatar parametro de rotas como id usamos this.nome.params.subscribe para poder resgatar o que foi colocado no nosso module de rotas, caso a pessoa deseja ter um token e deseja resgatar usa-se this.nome.queryparams.subscribe
+
+- Para que se possa fazer um direcionamento forçado de página dentro do constructor criamos um private usando o parametro Router e no nosso ng init podemos colocar os parametros de rota que e quantidade de tempo que colocaremos para que ele force o retorno
+  exemplo:
+  <!-- Constructor -->
+  private navegador: Router
+
+<!-- ngInit -->
+
+ngOnInit(): void {
+setInterval(() => {
+this.navegador.navigate(['/']);
+}, 5000);
+}
